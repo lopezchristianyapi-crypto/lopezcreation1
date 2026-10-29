@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta property="og:title" content="Lopez Resto - Livraison à Yopougon">
+<meta property="og:description" content="Je crée des sites web qui facilitent vos ventes... Cliquez sur l'image pour voir un exemplaire !">
+<meta property="og:image" content="https://app.netlify.com/projects/lopez-creation1/overview/resto.png.jpg">
+<meta property="og:url" content="https://lopez-creation1.netlify.app">
+<meta property="og:type" content="website"> 
+ <!-- SEO & Partage WhatsApp / Réseaux Sociaux -->
+<meta name="description" content="Commandez vos plats et boissons préférés chez Lopez Resto à Yopougon. Livraison rapide et paiement par Wave & Cash.">
+<meta property="og:title" content="Lopez Resto - Service de Livraison à Yopougon">
+<meta property="og:description" content="Découvrez notre menu et commandez directement sur WhatsApp !">
+<meta property="og:image" content="https://ton-site.netlify.app/ton-image.jpg"> <!-- Mettez le lien de votre plus belle image -->
+<meta property="og:type" content="website">
+<title> Lopez-création</title>
+<link rel="icon" type="image/png" href="resto.png.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Écran / Modal de Bienvenue Animé -->
+    <div id="welcome-modal" class="welcome-overlay">
+        <div class="welcome-card">
+            <div class="welcome-icon">🍽️</div>
+            <h2>Bienvenue chez <br><span class="highlight-brand">Lopez Resto</span></h2>
+            <p class="welcome-sub">(Propulsé par Aya Resto)</p>
+            <p class="welcome-text">Découvrez nos savoureux plats et boissons d'Abidjan livrés directement chez vous !</p>
+            <p class="welcome-location">📍 <strong>Localisation :</strong> Yopougon, Abidjan</p>
+            
+            <div id="welcome-promo-tag" class="welcome-promo-tag" style="display: none;">
+                🎉 <strong>PROMO DU JOUR :</strong> -10% sur toute votre commande aujourd'hui !
+            </div>
+
+            <button class="btn-welcome-start" onclick="fermerBienvenue()">Découvrir le Menu 🛵</button>
+        </div>
+    </div>
+
+    <!-- Bannière Défilante Animée en En-tête -->
+    <div class="banniere-defilante-container">
+        <div class="banniere-defilante-texte">
+            🔥 Bienvenue chez Aya Resto (Aya Resto) ! 📍 Basé à Yopougon, Abidjan - Livraison rapide dans toute la commune 🛵 | 🌟 Profitez de nos délicieux plats et boissons fraîchement préparés | 🎉 -10% de réduction automatique les mercredis et samedis !
+        </div>
+    </div>
+
+    <!-- En-tête avec Section Hero -->
+    <header>
+        <div class="container hero-section">
+            <div class="hero-text">
+                <h1>🍽️ AYA Resto <span class="sub-brand">(Aya Resto)</span></h1>
+                <h2>Bienvenue chez nous !</h2>
+                <p class="location-badge">📍 <strong>Localisation :</strong> Yopougon(Sable), Abidjan (Côte d'Ivoire)</p>
+                <p>Savourez les meilleurs plats et boissons préparés avec amour et livrés chez vous en un temps record.</p>
+                
+                <!-- Indication avec un pouce animé -->
+                <div class="indication-pouce">
+                    <span class="icone-pouce">👇</span>
+                    <span class="texte-pouce">Veuillez cliquer ici pour accéder au menu et commander !</span>
+                </div>
+
+                <nav class="navbar-hero">
+                    <a href="#menu-section" onclick="fermerBienvenue()">Voir le Menu</a>
+                    <a href="#commande-section" class="btn-hero-commande" onclick="fermerBienvenue()">Mon Panier</a>
+                </nav>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80" alt="Cuisinier Aya Resto">
+            </div>
+        </div>
+    </header>
+
+    <!-- Bannière Promotion -->
+    <div id="banner-promo" class="banner-promo" style="display: none;">
+        🎉 <strong>PROMO DU JOUR !</strong> Profitez de <strong>10% de réduction</strong> automatique sur votre commande aujourd'hui !
+    </div>
+
+    <main class="container">
+
+        <!-- Section Menu : Plats & Boissons en Ronds -->
+        <section id="menu-section" class="section">
+            <h2 class="section-title">Nos Plats</h2>
+            <div class="galerie-ronds-container">
+                <div class="rond-item" onclick="ajouterAuPanier('Poulet Braisé + Alloco', 3500)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=300&q=80" alt="Poulet Braisé">
+                    </div>
+                    <h3>Poulet Braisé + Alloco</h3>
+                    <p class="prix">3 500 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Garba Poisson Thon', 2000)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=300&q=80" alt="Garba">
+                    </div>
+                    <h3>Garba Poisson Thon</h3>
+                    <p class="prix">2 000 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Choukouya de Mouton', 4000)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=300&q=80" alt="Choukouya">
+                    </div>
+                    <h3>Choukouya de Mouton</h3>
+                    <p class="prix">4 000 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Riz Gras Ivoirien', 1000)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=300&q=80" alt="Riz Gras">
+                    </div>
+                    <h3>Riz Gras Ivoirien</h3>
+                    <p class="prix">1 000 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Foutou Sauce Graine', 1500)">
+                    <div class="circle-img-box">
+                        <img src="foutou.png.jpg" alt="Foutou Sauce Graine">
+                    </div>
+                    <h3>Foutou Sauce Graine</h3>
+                    <p class="prix">1 500 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+            </div>
+
+            <h2 class="section-title" style="margin-top: 40px;">Nos Boissons</h2>
+            <div class="galerie-ronds-container">
+                <div class="rond-item" onclick="ajouterAuPanier('Jus de Bissap Glacé', 500)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=300&q=80" alt="Bissap">
+                    </div>
+                    <h3>Jus de Bissap Glacé</h3>
+                    <p class="prix">500 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Vin', 2500)">
+                    <div class="circle-img-box">
+                        <img src="Vin.png.jpg" alt="Vin" alt="Vin">
+                    </div>
+                    <h3>Vin</h3>
+                    <p class="prix">2 500 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Coca-Cola Canette', 800)">
+                    <div class="circle-img-box">
+                        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80" alt="Coca-Cola">
+                    </div>
+                    <h3>Coca-Cola Canette</h3>
+                    <p class="prix">800 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Sucrerie (Fanta / Orani)', 500)">
+                    <div class="circle-img-box">
+                        <img src="sucrerie.png.jpg" alt="Sucrerie">
+                    </div>
+                    <h3>Sucrerie</h3>
+                    <p class="prix">500 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+
+                <div class="rond-item" onclick="ajouterAuPanier('Heineken', 800)">
+                    <div class="circle-img-box">
+                        <img src="Heineken.png.jpg" alt="Heineken">
+                    </div>
+                    <h3>Heineken</h3>
+                    <p class="prix">800 FCFA</p>
+                    <span class="btn-ajouter">+ Ajouter</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Panier & Formulaire de Commande -->
+        <section id="commande-section" class="section card-form">
+            <h2>🛒 Votre Panier</h2>
+
+            <!-- Message de Confirmation de Commande -->
+            <div id="confirmation-message" class="confirmation-box" style="display: none;">
+                <h3>🎉 Commande enregistrée avec succès !</h3>
+                <p id="details-confirmation"></p>
+                <p class="instruction-whatsapp">📲 Si WhatsApp ne s'est pas ouvert automatiquement, vérifiez vos fenêtres pop-up.</p>
+            </div>
+
+            <!-- Tableau d'affichage du panier -->
+            <div class="table-responsive">
+                <table id="table-panier">
+                    <thead>
+                        <tr>
+                            <th>Article</th>
+                            <th>Prix</th>
+                            <th>Qté</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="liste-panier-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: #777;">Votre panier est vide. Cliquez sur un plat ou une boisson ci-dessus pour l'ajouter.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Récapitulatif du Total du Panier -->
+            <div class="recap-prix">
+                <p>Total à payer : <span id="afficher-total">0</span> FCFA</p>
+                <small id="mention-reduction" class="text-success" style="display: none;">(Réduction de 10% appliquée sur l'ensemble !)</small>
+            </div>
+
+            <form id="form-commande" onsubmit="validerCommande(event)">
+                <div class="form-group">
+                    <label for="client-nom">Votre Nom complet :</label>
+                    <input type="text" id="client-nom" required placeholder="Ex: Jean Kouassi">
+                </div>
+
+                <div class="form-group">
+                    <label for="client-phone">Votre Numéro WhatsApp :</label>
+                    <input type="tel" id="client-phone" required placeholder="Ex: 0700000000">
+                </div>
+
+                <div class="form-group">
+                    <label for="client-lieu">Quartier & Lieu de Livraison (à Yopougon ou environ) :</label>
+                    <input type="text" id="client-lieu" required placeholder="Ex: Yopougon Sable, Siporex, Niangon...">
+                </div>
+
+                <!-- Case à cocher Abonnement Promo -->
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="abonner-promo" checked>
+                    <label for="abonner-promo">S'abonner pour recevoir nos offres promo par WhatsApp (Mercredi & Samedi)</label>
+                </div>
+
+                <!-- Modes de Paiement -->
+                <h3>Mode de Paiement :</h3>
+                <div class="paiement-options">
+                    <div class="paiement-card" onclick="selectionnerPaiement(this, 'Wave')">
+                        <strong>🌊 Wave</strong>
+                    </div>
+                    <div class="paiement-card" onclick="selectionnerPaiement(this, 'Orange Money')">
+                        <strong>🍊 Orange Money</strong>
+                    </div>
+                    <div class="paiement-card" onclick="selectionnerPaiement(this, 'Espèces')">
+                        <strong>💵 Espèces à la livraison</strong>
+                    </div>
+                </div>
+                <input type="hidden" id="paiement-selectionne" required>
+
+                <!-- Affichage du QR Code Wave -->
+                <div id="carte-qr-box" class="carte-qr-box" style="display: none;">
+                    <div class="carte-qr-header">
+                        <span id="qr-titre">Paiement via Wave</span>
+                    </div>
+                    <div class="carte-qr-body">
+                        <img id="qr-code-img" src="qr-wave.png.jpg" alt="QR Code Wave">
+                        <p id="qr-instruction">Scannez ce QR code avec votre application Wave pour effectuer le règlement.</p>
+                    </div>
+                </div>
+               
+                <button type="submit" class="btn-valider">📱 Valider la commande sur WhatsApp</button>
+            </form>
+        </section>
+ <!-- Section Avis / Commentaires -->
+<section class="section card-form">
+    <h2>💬 Laissez-nous votre avis !</h2>
+    <form name="avis-clients" method="POST" data-netlify="true">
+        <!-- Champ caché requis par Netlify -->
+        <input type="hidden" name="form-name" value="avis-clients" />
+
+        <div class="form-group">
+            <label for="nom-client">Votre Nom :</label>
+            <input type="text" id="nom-client" name="nom" required placeholder="Ex: Kouassi">
+        </div>
+
+        <div class="form-group">
+            <label for="note-client">Votre Note :</label>
+            <select id="note-client" name="note" required>
+                <option value="5">⭐⭐⭐⭐⭐ (5/5) - Excellent</option>
+                <option value="4">⭐⭐⭐⭐ (4/5) - Très bon</option>
+                <option value="3">⭐⭐⭐ (3/5) - Moyen</option>
+                <option value="2">⭐⭐ (2/5) - Décevant</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="commentaire-client">Votre Commentaire :</label>
+            <textarea id="commentaire-client" name="commentaire" rows="4" required placeholder="Partagez votre expérience sur la livraison ou le repas..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-valider">Envoyer mon avis 📝</button>
+    </form>
+</section>
+<!-- Formulaire d'avis direct Netlify -->
+<section class="section card-form" style="margin-top: 30px;">
+    <h2>💬 Laissez un avis sur Lopez Resto</h2>
+    <form name="avis-clients" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="avis-clients" />
+        
+        <div style="margin-bottom: 10px;">
+            <label><strong>Votre Nom :</strong></label><br>
+            <input type="text" name="nom" required placeholder="Ex: Kouassi" style="width: 100%; padding: 8px; margin-top: 5px;">
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <label><strong>Votre Avis / Note :</strong></label><br>
+            <textarea name="message" rows="3" required placeholder="Comment était votre repas ou livraison ?" style="width: 100%; padding: 8px; margin-top: 5px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-valider" style="width: 100%; padding: 10px; cursor: pointer;">
+            Envoyer mon commentaire 🚀
+        </button>
+    </form>
+</section>
+        <!-- Bouton & Panneau Admin -->
+        <div class="admin-trigger-container">
+            <button onclick="toggleAdminPanel()" class="btn-admin-toggle">🔒 Accès Admin (Abonnés)</button>
+        </div>
+
+        <section id="admin-panel" class="section card-admin" style="display: none;">
+            <div class="admin-header">
+                <h3>📋 Abonnés enregistrés</h3>
+                <button onclick="toggleAdminPanel()" class="btn-fermer">❌ Fermer</button>
+            </div>
+            <div class="table-responsive">
+                <table id="table-abonnes">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>N° WhatsApp</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="liste-abonnes-body">
+                        <!-- Données générées via JS -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="admin-actions">
+                <button onclick="exporterAbonnes()" class="btn-exporter">📥 Exporter (.TXT)</button>
+                <button onclick="effacerAbonnes()" class="btn-effacer">🗑️ Effacer la liste</button>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>📍 <strong>Aya Resto (Aya Resto)</strong> - Yopougon, Abidjan, Côte d'Ivoire</p>
+        <p>&copy; 2026 Tous droits réservés.</p>
+    </footer>
+<!-- Section Avis / Commentaires -->
+<section class="section card-form">
+    <h2>💬 Laissez-nous votre avis !</h2>
+    <form name="avis-clients" method="POST" data-netlify="true">
+        <!-- Champ caché requis par Netlify -->
+        <input type="hidden" name="form-name" value="avis-clients" />
+
+    <script src="script.js"></script>
+</body>
+</html>
